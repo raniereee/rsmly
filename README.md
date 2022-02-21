@@ -23,3 +23,7 @@ For test use:
 ```
 python3 manage.py test
 ```
+
+## Versions softwares
+Python3 3.8.10
+Django  4.0.2
