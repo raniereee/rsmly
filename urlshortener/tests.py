@@ -23,7 +23,7 @@ class ViewsTestCase(TestCase):
 
     def test_access_dashboard_login(self):
         """The login test"""
-        print("Testando dashboard ")
+        print("Testing dashboard ")
         response = self.client.get('http://127.0.0.1:8000/dashboard/')
 
         '''
@@ -31,6 +31,22 @@ class ViewsTestCase(TestCase):
         '''
         self.assertEqual(response.status_code, 302)
 
+    def test_url_shortener_error(self):
+        response = self.client.post("/", data={"long_url": "", "name_short_url": "", "duration_expire": ""})
+        #print("-> Response: ", response.content)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+
     def test_url_shortener_simple(self):
         response = self.client.post("/", data={"long_url": "http://globo.com", "name_short_url": "", "duration_expire": ""})
+        #print("-> Response: ", response.content)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+
+    def test_url_shortener_with_name(self):
+        response = self.client.post("/", data={"long_url": "http://globo.com", "name_short_url": "teste12", "duration_expire": ""})
+        #print("-> Response: ", response.content)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+
+    def test_url_shortener_full(self):
+        response = self.client.post("/", data={"long_url": "http://globo.com", "name_short_url": "teste12", "duration_expire": 5})
+        #print("-> Response: ", response.content)
         self.assertEqual(response.status_code, HTTPStatus.OK)
