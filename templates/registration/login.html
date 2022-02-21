@@ -1,0 +1,47 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+	<main role="main">
+		<br>
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<div id="flash_alert">Para continuar, efetue login ou registre-se.</div>
+		</div>
+
+		<div class="authform" style="max-width: 450px;">
+			<form class="form-group" role="form" accept-charset="UTF-8" method="post">
+				<input name="utf8" type="hidden" value="&#x2713;" />
+
+				<h3>Entrar</h3>
+				{% csrf_token %}
+
+						<div class="form-group">
+							<label for="{{ form.username.id_for_label }}"> {{ form.username.label }} </label>
+							<!-- {i { form.username }} -->
+							<input class="form-control" type="text" name="username" autofocus autocapitalize="none" autocomplete="username" maxlength="150" required id="id_username">
+						</div>
+						<div class="form-group">
+							<label for="{{ form.password.id_for_label }}"> {{ form.password.label }} </label>
+							<!-- { { form.password}} -->
+							<input class="form-control" type="password" name="password" autocomplete="current-password" required id="id_password">
+						</div>
+
+				<input type="submit" name="commit" value="Entrar" class="button right" data-disable-with="Entrar" />
+
+				<div class="checkbox" style="width:150px">
+					<label>
+						<input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" /> Manter conectado
+					</label>
+				</div>
+
+			</form>
+		</div>
+
+	</main>
+</div>
+{% endblock %}
+

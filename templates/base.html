@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        {% block title %}<title>DASHBOARD</title>{% endblock %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Origem destino domiciliar">
+	{% load static %}
+	<link rel="stylesheet" media="all" href="{% static 'application-e8df12918dc7585c45b3ff55731e8fb4f288314e7fc61a22bfe27a852f06201a.css' %}" data-turbolinks-track="true" />
+	<script src="{% static 'application-53befd528c319a29b6da95ca5d4e59395f8bbdfa600b1bda9d85fc6674a8e783.js' %}" data-turbolinks-track="true"></script>
+	<meta name="csrf-param" content="authenticity_token" />
+	<meta name="csrf-token" content="Kff1YQNBNYLoRlC5uQqNOnXzP37ncp0bLH/jnavEhUcPzpBmqT2fQi2EPxm+pljpd/n5fx1x3zN1IRsiGA5m7w==" />
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon-a4dc64898f2e223e70cb17016c25145cecb4f35a0cd4c54167a4520a2ad15025.ico' %}" />
+
+</head>
+
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #222;">
+			<a style='font-size: 20px; font-weight: 200;' class="navbar-brand" href="/"><i class="fa fa-road fa-inverse" aria-hidden="true"></i>DASHBOARD</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'login' %}">
+						<i class="fa fa-sign-in" aria-hidden="true"></i>
+						Entrar
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+	</header>
+
+	<!-- <main> -->
+	{% block content %}
+	{% endblock %}
+	<!-- </main> -->
+
+
+        <footer class="footer">
+                <div class="container-fluid">
+                        <div class="float-left">
+                                <p class="mb-0 mt-1"><b>URLShortnet Tec</b> <br/>
+                                All rights reserved</p>
+                        </div>
+			{% load static %}
+                        <div class="float-right">
+				<img style="height: 40px;" src="{% static 'dba-logo-sf-6607c4ed1e7cb211f83942099754b7c4ed471dc36c58345796820e381f31f228.png'%}" />
+                        </div>
+                </div>
+        </footer>
+
+</body>
+
+</html>
+
