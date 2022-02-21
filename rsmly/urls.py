@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('urlshortener.urls')),
     path('urlshortener/', include('urlshortener.urls')),
+    path('dashboard/', include('dashboard.urls')),
+    path('accounts/',include('django.contrib.auth.urls')), # add by Raniere - add views from Django, need only  html
 ]
