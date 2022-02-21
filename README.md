@@ -7,3 +7,15 @@ The user should input the URL to shortien, optionally him can give a specific na
 
 ### rsmly
 Directory with seetings of django framework for this application
+
+### urlshortener
+Main application.
+
+
+## Test
+
+For test use:
+
+```
+python3 manage.py test
+```
