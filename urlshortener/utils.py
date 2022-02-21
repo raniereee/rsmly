@@ -5,6 +5,11 @@ from string import ascii_letters, digits
 # Try to get the value from the settings module
 SIZE = getattr(settings, "MAXIMUM_URL_CHARS", 7)
 
+# len(ascii_letters) = 52
+# len(digits) = 10
+# Then, there are 62 characters.
+# 7 positions
+# P(n,r) -> P(62,7) = 62! / (62 - 7)! ~ 2E12 codes 
 AVAIABLE_CHARS = ascii_letters + digits
 
 
