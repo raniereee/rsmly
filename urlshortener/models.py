@@ -11,7 +11,7 @@ from .utils import create_shortened_url
 from datetime import datetime, timedelta
 import uuid
 
-DEFAULT_EXPIRATION_DAYS = 30
+DEFAULT_EXPIRATION_DAYS = 7
 
 class Shortener(models.Model):
 
@@ -19,13 +19,11 @@ class Shortener(models.Model):
 
     expire_in = models.DateTimeField(default=datetime.now() + timedelta(days = DEFAULT_EXPIRATION_DAYS))
 
-    # fast test
-    #expire_in = models.DateTimeField(default=timezone.now() + timedelta(seconds = DEFAULT_EXPIRATION_DAYS))
-
-    times_followed = models.PositiveIntegerField(default=0)
     long_url = models.URLField()
     short_url = models.CharField(max_length=15, unique=True, blank=True)
     name_short_url = models.CharField(max_length=15, unique=True, default=uuid.uuid1)
+
+    duration_expire = models.IntegerField(default=DEFAULT_EXPIRATION_DAYS)
 
     class Meta:
         ordering = ["-created"]
@@ -37,6 +35,14 @@ class Shortener(models.Model):
         return f'{self.long_url} to {self.short_url}'
 
     def save(self, *args, **kwargs):
+
+        if self.duration_expire:
+            self.expire_in = datetime.now()  + timedelta(days = self.duration_expire)
+            # fast test
+            #self.expire_in = datetime.now()  + timedelta(seconds = self.duration_expire)
+        else:
+            self.expire_in = datetime.now()  + timedelta(days = DEFAULT_EXPIRATION_DAYS)
+            self.duration_expire = DEFAULT_EXPIRATION_DAYS
 
         if self.name_short_url:
             self.short_url = self.name_short_url
