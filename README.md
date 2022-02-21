@@ -12,6 +12,10 @@ Directory with seetings of django framework for this application
 Main application.
 
 
+### dashboard
+Application that shows the shortened URL. This application needs authentication.
+
+
 ## Test
 
 For test use:
