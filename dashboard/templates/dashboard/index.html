@@ -1,0 +1,53 @@
+{% extends 'dashboard/base.html' %}
+{% block title %}Listagem de Urls Curtas{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid">
+		  <div class="container">
+		    <h1 class="display-4">Dashboard - URLs encurtadas!</h1>
+		  </div>
+		</div>
+		<div class="row">
+			<table class="table table-sm table-responsive-sm">
+				<thead class="thead-dark">
+					<tr>
+						<th>Criação</th><th>Expira</th><th>URL</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for post in posts %}
+						<tr class="table-default">
+							<td>
+								<a class="text-dark"> {{ post.created }}</a>
+							</td>
+							<td class="text-truncate">
+								<a class="text-dark"> {{ post.expire_in }}</a>
+							</td>
+							<td class="text-truncate">
+								<a class="text-dark"> {{ post.short_url }}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+
+		</div>
+
+		<div class="pagination">
+			<span class="step-links">
+					{% if posts.has_previous %}
+							<a href="?page={{ posts.previous_page_number }}">Anterior</a>
+					{% endif %}
+
+					<span class="current">
+							{{ posts.number }} de {{ posts.paginator.num_pages }}
+					</span>
+
+					{% if posts.has_next %}
+							<a href="?page={{ posts.next_page_number }}">Próxima</a>
+					{% endif %}
+			</span>
+		</div>
+	</div>
+{% endblock %}
