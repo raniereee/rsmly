@@ -1,4 +1,5 @@
 from django.test import TestCase
+from http import HTTPStatus
 
 # Create your tests here.
 
@@ -29,3 +30,7 @@ class ViewsTestCase(TestCase):
         302 FOUND - The target resource resides temporarily under a different URI. LOGIN
         '''
         self.assertEqual(response.status_code, 302)
+
+    def test_url_shortener_simple(self):
+        response = self.client.post("/", data={"long_url": "http://globo.com", "name_short_url": "", "duration_expire": ""})
+        self.assertEqual(response.status_code, HTTPStatus.OK)
