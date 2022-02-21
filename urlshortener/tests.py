@@ -20,4 +20,12 @@ class ViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
 
 
+    def test_access_dashboard_login(self):
+        """The login test"""
+        print("Testando dashboard ")
+        response = self.client.get('http://127.0.0.1:8000/dashboard/')
 
+        '''
+        302 FOUND - The target resource resides temporarily under a different URI. LOGIN
+        '''
+        self.assertEqual(response.status_code, 302)
