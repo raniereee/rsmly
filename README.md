@@ -1,7 +1,7 @@
 ## Description
-Webservice application to short URL.
+Webservice application to shorten URL.
 
-The user should input the URL to shortien, optionally him can give a specific name if available.
+The user should input the URL to shorten, optionally him can give a specific name if available, as well to specify expiration time.
 
 ## Applications structure
 
