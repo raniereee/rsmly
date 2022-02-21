@@ -57,5 +57,5 @@ def redirect_url_view(request, shortened_part):
         return HttpResponseRedirect(shortener.long_url)
 
     except:
-        return HttpResponseNotFound('<h1>Page not found except</h1>')
+        return HttpResponseNotFound('<h1>Page not found</h1>')
 
