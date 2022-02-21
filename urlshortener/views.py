@@ -54,10 +54,6 @@ def redirect_url_view(request, shortened_part):
             ret = shortener.delete()
             return HttpResponseNotFound('<h1>Page not found</h1>')
 
-        shortener.times_followed += 1
-
-        shortener.save()
-
         return HttpResponseRedirect(shortener.long_url)
 
     except:
