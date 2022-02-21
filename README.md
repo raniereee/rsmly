@@ -24,6 +24,9 @@ For test use:
 python3 manage.py test
 ```
 
+## Database
+SQLite database as default, simplicity  question.
+
 ## Versions softwares
 Python3 3.8.10
 
