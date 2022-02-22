@@ -15,6 +15,8 @@ Main application.
 ### dashboard
 Application that shows the shortened URL. This application needs authentication.
 
+![plot](./imgs/dashboard.png)
+
 ### Access system
 
 #### Run
