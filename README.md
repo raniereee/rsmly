@@ -11,6 +11,7 @@ Directory with seetings of django framework for this application
 ### urlshortener
 Main application.
 
+![plot](./imgs/shortener.png)
 
 ### dashboard
 Application that shows the shortened URL. This application needs authentication.
