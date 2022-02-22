@@ -24,7 +24,7 @@ $ python3 manage.py runserver
 
 #### Methods and Credentials
 
-credentials for dashboars: admin:admin
+credentials for dashboard: admin:admin
 
 * /
 * /urlshortener
