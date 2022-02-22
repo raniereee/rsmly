@@ -15,6 +15,21 @@ Main application.
 ### dashboard
 Application that shows the shortened URL. This application needs authentication.
 
+### Access system
+
+#### Run
+```
+$ python3 manage.py runserver
+```
+
+#### Methods and Credentials
+
+credentials for dashboars: admin:admin
+
+* /
+* /urlshortener
+* /dashboard
+
 
 ## Test
 
